@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { Car, LogOut, ClipboardList } from "lucide-react";
+import { Car, LogOut, AlertCircle } from "lucide-react";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
@@ -20,6 +20,11 @@ function Layout({ children }: { children: React.ReactNode }) {
     navigate("/login");
   };
 
+  const handleSupport = () => {
+    const message = encodeURIComponent("Olá Larysson Lara, preciso de ajuda com o suporte.");
+    window.open(`https://wa.me/5541997015424?text=${message}`, "_blank");
+  };
+
   return (
     <div className="flex flex-col min-h-screen max-w-md mx-auto relative overflow-hidden">
       {!hideNav && (
@@ -33,11 +38,11 @@ function Layout({ children }: { children: React.ReactNode }) {
           
           <div className="flex items-center gap-1">
             <button 
-              onClick={() => navigate("/database")}
+              onClick={handleSupport}
               className="flex items-center justify-center size-10 rounded-full hover:bg-primary/10 text-slate-400 hover:text-primary transition-all"
-              title="Lista de Cadastro"
+              title="Suporte"
             >
-              <ClipboardList size={20} />
+              <AlertCircle size={20} />
             </button>
             <button 
               onClick={handleLogout}

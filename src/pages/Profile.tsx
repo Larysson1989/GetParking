@@ -47,7 +47,7 @@ export default function Profile() {
               <input type="file" className="hidden" accept="image/*" />
             </label>
           </div>
-          <h2 className="mt-4 text-2xl font-bold text-white">{user?.name || "Carregando..."}</h2>
+          <h2 className="mt-4 text-2xl font-bold text-white">{user?.name?.toUpperCase() || "Carregando..."}</h2>
           <p className="text-slate-500 text-sm">ID: #{user?.id?.slice(-6).toUpperCase() || "N/A"}</p>
         </section>
 
@@ -59,8 +59,8 @@ export default function Profile() {
               <User size={20} />
             </div>
             <div className="flex-1">
-              <p className="text-slate-500 text-xs">Nome Completo</p>
-              <p className="font-medium text-slate-200">{user?.name}</p>
+              <p className="text-slate-500 text-xs">NOME COMPLETO</p>
+              <p className="font-medium text-slate-200">{user?.name?.toUpperCase()}</p>
             </div>
             <button className="text-primary text-xs font-bold">Editar</button>
           </div>

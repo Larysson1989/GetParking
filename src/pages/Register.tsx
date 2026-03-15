@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { User, Smartphone, Lock, Eye, EyeOff, UserPlus, ArrowLeft, ShieldCheck, Calendar } from "lucide-react";
+import { User, Smartphone, Lock, Eye, EyeOff, UserPlus, ArrowLeft, ShieldCheck, Calendar, ParkingCircle } from "lucide-react";
 import { motion } from "motion/react";
 import { maskPhone } from "../utils/masks";
 
@@ -84,14 +84,15 @@ export default function Register() {
               </div>
             )}
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-300">Nome Completo</label>
+              <label className="text-sm font-semibold text-slate-300">NOME COMPLETO</label>
               <div className="relative group">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 text-primary" size={20} />
                 <input 
                   type="text" 
                   name="name"
                   className="w-full pl-10 pr-4 py-3 bg-bg-dark border border-white/10 rounded-lg text-white placeholder:text-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                  placeholder="Digite seu nome completo"
+                  placeholder="DIGITE SEU NOME COMPLETO"
+                  onChange={(e) => e.target.value = e.target.value.toUpperCase()}
                   required
                 />
               </div>

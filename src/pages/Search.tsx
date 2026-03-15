@@ -69,10 +69,10 @@ export default function Search() {
           </div>
           <input 
             className="flex w-full border-none bg-transparent focus:ring-0 text-slate-100 placeholder:text-slate-600 px-4 text-base font-medium" 
-            placeholder="Nome ou Placa (ABC-1234)" 
+            placeholder="NOME OU PLACA (ABC-1234)" 
             type="text" 
             value={plate}
-            onChange={(e) => setPlate(e.target.value)}
+            onChange={(e) => setPlate(e.target.value.toUpperCase())}
           />
         </div>
         <button 

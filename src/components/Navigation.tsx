@@ -11,7 +11,7 @@ export default function Navigation() {
   const navItems = [
     { path: "/home", label: "Início", icon: Home },
     { path: "/search", label: "Consulta", icon: Search },
-    { path: "/sectors", label: "Setores", icon: LayoutGrid },
+    { path: "/database", label: "Lista de Cadastro", icon: LayoutGrid },
     { path: "/profile", label: "Perfil", icon: User },
   ];
 

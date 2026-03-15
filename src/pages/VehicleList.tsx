@@ -63,9 +63,9 @@ export default function VehicleList() {
           </div>
           <input 
             type="text"
-            placeholder="Filtrar na lista..."
+            placeholder="FILTRAR NA LISTA..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value.toUpperCase())}
             className="w-full h-12 bg-card-dark border border-white/5 rounded-xl pl-11 pr-4 text-slate-200 placeholder:text-slate-600 focus:border-primary/50 focus:ring-0 transition-all text-sm"
           />
         </div>

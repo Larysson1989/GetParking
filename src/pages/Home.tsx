@@ -68,9 +68,9 @@ export default function Home() {
           </div>
           <input 
             type="text"
-            placeholder="Buscar por Nome ou Placa..."
+            placeholder="BUSCAR POR NOME OU PLACA..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value.toUpperCase())}
             className="w-full h-14 bg-card-dark border border-white/5 rounded-2xl pl-12 pr-4 text-slate-200 placeholder:text-slate-600 focus:border-primary/50 focus:ring-0 transition-all"
           />
         </form>
@@ -112,21 +112,21 @@ export default function Home() {
           <ChevronRight size={20} className="text-slate-700" />
         </motion.button>
 
-        <div className="bg-card-dark p-5 rounded-2xl border border-white/5 flex items-center gap-4 opacity-60 relative overflow-hidden">
-          <div className="size-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => navigate("/database")}
+          className="bg-card-dark p-5 rounded-2xl border border-white/5 flex items-center gap-4 group text-left"
+        >
+          <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
             <LayoutGrid size={24} />
           </div>
           <div className="flex-1">
-            <h3 className="text-white font-bold text-base">Setores</h3>
-            <div className="flex items-center gap-1.5 mt-0.5">
-              <Construction size={12} className="text-amber-500" />
-              <p className="text-amber-500 text-[10px] font-bold uppercase tracking-widest">Em Construção</p>
-            </div>
+            <h3 className="text-white font-bold text-base">Lista de Cadastro</h3>
+            <p className="text-slate-500 text-xs">Consultar lista completa de registros</p>
           </div>
-          <div className="absolute top-0 right-0 p-2">
-            <div className="bg-amber-500/20 text-amber-500 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-tighter">WIP</div>
-          </div>
-        </div>
+          <ChevronRight size={20} className="text-slate-700" />
+        </motion.button>
       </section>
 
       {/* Profile Quick Config */}
