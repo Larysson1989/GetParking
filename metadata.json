@@ -1,0 +1,5 @@
+{
+  "name": "Get Parking",
+  "description": "Sistema de gestão de estacionamento integrado com Google Sheets para localização de veículos e controle de voluntários.",
+  "requestFramePermissions": []
+}
