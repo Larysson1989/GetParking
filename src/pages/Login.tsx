@@ -18,6 +18,11 @@ export default function Login() {
     if (error) setError("");
   };
 
+  const handleForgotPassword = () => {
+    const message = encodeURIComponent("Oi, eu esqueci a minha senha de acesso no Get.Parking");
+    window.open(`https://wa.me/5541997015424?text=${message}`, "_blank");
+  };
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -87,7 +92,13 @@ export default function Login() {
         <div className="space-y-2">
           <div className="flex justify-between items-center ml-1">
             <label className="text-sm font-medium text-slate-300">Senha (6 dígitos)</label>
-            <button type="button" className="text-xs text-primary hover:text-primary/80 transition-colors">Esqueceu a senha?</button>
+            <button 
+              type="button" 
+              onClick={handleForgotPassword}
+              className="text-xs text-primary hover:text-primary/80 transition-colors"
+            >
+              Esqueceu a senha?
+            </button>
           </div>
           <div className="relative group">
             <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-primary/60 group-focus-within:text-primary transition-colors" size={20} />

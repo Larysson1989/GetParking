@@ -99,17 +99,17 @@ export default function Home() {
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          onClick={() => navigate("/search")}
-          className="bg-card-dark p-5 rounded-2xl border border-white/5 flex items-center gap-4 group text-left"
+          onClick={() => navigate("/register-vehicle-choice")}
+          className="bg-primary p-6 rounded-2xl flex items-center gap-4 group text-left shadow-lg shadow-primary/20"
         >
-          <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+          <div className="size-12 rounded-xl bg-white/20 flex items-center justify-center text-white">
             <Car size={24} />
           </div>
           <div className="flex-1">
-            <h3 className="text-white font-bold text-base">Veículos Cadastrados</h3>
-            <p className="text-slate-500 text-xs">Consultar lista completa de veículos</p>
+            <h3 className="text-white font-black text-lg uppercase tracking-tight">+ Cadastre um veículo</h3>
+            <p className="text-white/70 text-xs font-medium">Adicionar novo proprietário à base</p>
           </div>
-          <ChevronRight size={20} className="text-slate-700" />
+          <ChevronRight size={20} className="text-white/50" />
         </motion.button>
 
         <motion.button

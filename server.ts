@@ -145,6 +145,36 @@ async function startServer() {
     }
   });
 
+  // Register New Vehicle
+  app.post("/api/vehicles", async (req, res) => {
+    try {
+      const { ownerName, phone, plate, model } = req.body;
+      
+      // Basic validation
+      if (!ownerName || !phone || !plate || !model) {
+        return res.status(400).json({ message: "Todos os campos são obrigatórios." });
+      }
+
+      const cleanPhone = phone.replace(/\D/g, "");
+      const whatsappLink = `https://wa.me/55${cleanPhone}`;
+      const id = Date.now().toString();
+
+      await sheets.spreadsheets.values.append({
+        spreadsheetId: SPREADSHEET_ID,
+        range: "'Base de Dados'!A:F",
+        valueInputOption: "USER_ENTERED",
+        requestBody: {
+          values: [[id, ownerName, phone, plate, model, whatsappLink]],
+        },
+      });
+
+      res.json({ success: true });
+    } catch (error: any) {
+      console.error("Sheets API Error:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   // Search Vehicle by Plate or Name
   app.get("/api/vehicle/search/:query", async (req, res) => {
     try {

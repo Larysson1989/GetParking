@@ -8,12 +8,16 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Profile from "./pages/Profile";
 import VehicleList from "./pages/VehicleList";
+import RegisterVehicleChoice from "./pages/RegisterVehicleChoice";
+import RegisterVehicleForm from "./pages/RegisterVehicleForm";
+import PublicVehicleRegistration from "./pages/PublicVehicleRegistration";
+import UnderConstruction from "./pages/UnderConstruction";
 import Navigation from "./components/Navigation";
 
 function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const hideNav = ["/login", "/register"].includes(location.pathname);
+  const hideNav = ["/login", "/register", "/register-vehicle-choice", "/register-vehicle-form", "/under-construction", "/cadastrar"].includes(location.pathname);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -54,7 +58,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </header>
       )}
-      <main className="flex-1 overflow-y-auto pb-24">
+      <main className={`flex-1 overflow-y-auto ${!hideNav ? "pb-24" : "pb-8"}`}>
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -66,6 +70,13 @@ function Layout({ children }: { children: React.ReactNode }) {
             {children}
           </motion.div>
         </AnimatePresence>
+
+        <footer className="py-8 px-6 text-center border-t border-white/5 mt-8">
+          <p className="text-[10px] text-slate-500 font-medium uppercase tracking-[0.2em] leading-relaxed">
+            Todos os direitos reservados ® <br />
+            <span className="text-slate-400">Larysson Lara 21.178.711/0001-20</span>
+          </p>
+        </footer>
       </main>
       {!hideNav && <Navigation />}
     </div>
@@ -83,6 +94,10 @@ export default function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/database" element={<VehicleList />} />
+          <Route path="/register-vehicle-choice" element={<RegisterVehicleChoice />} />
+          <Route path="/register-vehicle-form" element={<RegisterVehicleForm />} />
+          <Route path="/cadastrar" element={<PublicVehicleRegistration />} />
+          <Route path="/under-construction" element={<UnderConstruction />} />
           <Route path="/" element={<Navigate to="/login" replace />} />
         </Routes>
       </Layout>
