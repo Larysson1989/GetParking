@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   try {
 
-    const response = await fetch("COLE_AQUI_A_URL_DO_SCRIPT", {
+    const response = await fetch("1bQsBDXYog6He-a6mkMNYdUtNIe8wbhqpa7MIAi8ld9k", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
