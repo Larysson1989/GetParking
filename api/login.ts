@@ -18,23 +18,26 @@ export default async function handler(req, res) {
 
     const text = await response.text();
 
+    let data;
+
     try {
-      const data = JSON.parse(text);
-      return res.status(200).json(data);
-    } catch (e) {
+      data = JSON.parse(text);
+    } catch {
       return res.status(500).json({
         success:false,
-        message:"Apps Script não retornou JSON",
+        message:"Resposta inválida do Apps Script",
         raw:text
       });
     }
+
+    return res.status(200).json(data);
 
   } catch (error) {
 
     return res.status(500).json({
       success:false,
       message:"Erro ao conectar com Apps Script",
-      error:String(error)
+      error: String(error)
     });
 
   }
