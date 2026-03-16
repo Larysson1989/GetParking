@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   try {
 
-    const response = await fetch("COLE_AQUI_URL_DO_APPS_SCRIPT", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbywEIrsOId4F_20NfGQ6-lAnFzsH_3asQem-353u_dvTatYayCgrNboCfrajaF0hQbt/exec", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
